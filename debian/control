@@ -1,0 +1,19 @@
+Source: host-sflow
+Section: contrib/net
+Priority: optional
+Maintainer: Vyatta Support <DL-vyatta-help@att.com>
+Description: sFlow host library code
+Homepage: https://sflow.net
+Build-Depends: debhelper (>=12),
+ meson,
+ pkg-config,
+Standards-Version: 4.1.4
+
+Package: libhost-sflow-dev
+Section: contrib/net
+Architecture: any
+Description: Library and headers for host sflow
+ This provides the sflow library for formatting and sending out
+ sflow messages, and header files with required structures and prototypes.
+Depends: ${misc:Depends},
+        ${shlibs:Depends}

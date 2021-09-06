@@ -1,0 +1,44 @@
+Index: host-sflow/meson.build
+===================================================================
+--- /dev/null
++++ host-sflow/meson.build
+@@ -0,0 +1,39 @@
++project('host-sflow', 'c',
++        version: '1.0.0',
++        default_options: [
++                'buildtype=debug',
++                'werror=true',
++                'warning_level=2',
++                'c_std=gnu11'
++        ]
++)
++
++add_project_arguments(
++        '-Wall', '-Wcast-align',
++        language: 'c'
++)
++
++install_headers(
++	'src/sflow/sflow_api.h',
++	'src/sflow/sflow_drop.h',
++	'src/sflow/sflow.h',
++	subdir: 'sflow'
++)
++
++host_sflow_dev_sources = files(
++        'src/sflow/sflow_agent.c',
++        'src/sflow/sflow_sampler.c',
++        'src/sflow/sflow_poller.c',
++        'src/sflow/sflow_notifier.c',
++        'src/sflow/sflow_receiver.c'
++)
++
++host_sflow_dev_library = static_library(
++        'host-sflow',
++        sources: host_sflow_dev_sources,
++        install: true,
++        version: '1.0.0'
++)
++
++pkg = import('pkgconfig')
++pkg.generate(host_sflow_dev_library, subdirs: 'sflow')

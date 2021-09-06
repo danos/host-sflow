@@ -1,0 +1,5 @@
+host-sflow (2.0.36-1vyatta1) unstable; urgency=medium
+
+  * Initial release
+
+ -- Gavin Shearer <gavin.shearer@att.com>  Wed, 13 Oct 2021 14:31:45 +0100
