@@ -8,7 +8,7 @@ Index: host-sflow/meson.build
 +        default_options: [
 +                'buildtype=debug',
 +                'werror=true',
-+                'warning_level=2',
++                'warning_level=1',
 +                'c_std=gnu11'
 +        ]
 +)
